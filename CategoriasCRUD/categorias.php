@@ -1,9 +1,9 @@
 <?php
 
-session_start();
-
 require '../config/database.php';
-
+if (empty($_SESSION['admin_id'])){
+    header("location: ../login.php"); // para cuando quiera validar los usuarios
+};
 ?>
 
 <!DOCTYPE html>

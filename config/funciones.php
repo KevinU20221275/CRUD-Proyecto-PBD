@@ -1,50 +1,50 @@
 <?php
 
-function validarPassword($password, $repassword){
-    if (strcmp($password, $repassword) === 0){
-        return true;
-    }
-    return false;
-}
-
-// si el usuario ya existe
-function validarUsuario($usuario, $conexion){
-    $query = $conexion->prepare("SELECT id FROM usuarios WHERE NombreUsuario LIKE ? LIMIT 1");
-    $usuario = "%" . $usuario . "%"; // Agregamos los comodines % al valor de usuario
-    $query->bind_param("s", $usuario);
-    $query->execute();
-    $query->store_result();  // Almacenamos el resultado para poder obtener el número de filas
-    if ($query->num_rows > 0){
-        return true;
-    }
-    return false;
-}
-
-function loginUsuario($usuario, $password, $conexion, $proceso){
-    $query = $conexion->prepare("SELECT id, NombreUsuario, password, id_cliente FROM Usuarios WHERE NombreUsuario LIKE ? LIMIT 1");
-    $usuario = "%" . $usuario . "%";
-    $query->bind_param("s", $usuario);
-    $query->execute();
-    $query->store_result();
-
-    if ($query->num_rows > 0){
-        $query->bind_result($id, $NombreUsuario, $hashed_password, $id_cliente);
-        $query->fetch();
-
-        if (password_verify($password, $hashed_password)){
-            $_SESSION['user_id'] = $id;
-            $_SESSION['user_name'] = $NombreUsuario;
-            $_SESSION['user_cliente'] = $id_cliente;
-            if ($proceso == 'pago') {
-                header("Location: pago.php");
-            } else {
-                header("Location: ../index.php");
-                exit;
-            }
-        } else {
-            return 'Usuario o Contraseña incorrectos';
+function campoNulo(array $campos){
+    foreach ($campos as $campo){
+        if (strlen(trim($campo)) < 1){
+            return true;
         }
+        return false;
+    }
+}
+
+
+function mostrarErrores(array $errors){
+    if (count($errors) > 0){
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert"><ul>';
+        foreach($errors as $error){
+            echo '<li>' . $error . '</li>';
+        }
+        echo '</ul>';
+        echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button></div>';
+        
+    }
+}
+
+function loginAdministrador($usuario, $password, $conexion){
+    $sql = "CALL sp_LoginAdministrador (?,?,@id_admin, @admin_name, @contador);";
+    $query = $conexion->prepare($sql);
+    $query->bind_param("ss", $usuario,$password);
+    $query->execute();
+
+    $result = $conexion->query("SELECT @id_admin AS admin_id, @admin_name as admin_name,@contador AS contador");
+    $row = $result->fetch_assoc();
+
+    $contador = isset($row['contador']) ? $row['contador'] : 0;
+
+    if ($contador > 0){
+        $id = $row['admin_id'];
+        $NombreUsuario = $row['admin_name'];
+        $_SESSION['admin_id'] = $id;
+        $_SESSION['admin_name'] = $NombreUsuario;
+        return true;
     } else {
         return 'Usuario o Contraseña incorrectos';
+        $query->close();
     }
+    
+    $conexion->close();
 }
+
+?>
