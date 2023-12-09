@@ -38,7 +38,7 @@ if ($num_rows > 0) {
         $html .= '<tr>';
         $html .= '<td>' . $row['id'] . '</td>';
         $html .= '<td>' . $row['Nombre'] . '</td>';
-        $html .= '<td width="32%">' . $row['Descripcion'] . '</td>';
+        $html .= '<td width="30%">' . $row['Descripcion'] . '</td>';
         $html .= '<td>' . $row['Precio'] . '</td>';
         $html .= '<td>' . $row['Descuento'] . '% </td>';
         $html .= '<td>' . $row['Categoria'] . '</td>';

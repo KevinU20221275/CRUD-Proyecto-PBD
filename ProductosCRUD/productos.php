@@ -56,7 +56,7 @@ require '../config/database.php';
                 <tr>
                     <th>#id</th>
                     <th>Nombre</th>
-                    <th width="32%">Descripción</th>
+                    <th width="30%">Descripción</th>
                     <th>Precio</th>
                     <th>Descuento</th>
                     <th>categoria</th>
