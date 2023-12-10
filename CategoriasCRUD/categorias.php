@@ -80,7 +80,7 @@ if (empty($_SESSION['admin_id'])){
     <script>
         let createModal = document.getElementById('createModal')
         let updateModal = document.getElementById('updateModal')
-        let deleteModal = document.getElementById('deleteModal')
+        // let deleteModal = document.getElementById('deleteModal')
 
         createModal.addEventListener('shown.bs.modal', event => {
             createModal.querySelector('.modal-body #nombre').focus()
@@ -115,11 +115,11 @@ if (empty($_SESSION['admin_id'])){
             })
         })
 
-        deleteModal.addEventListener('shown.bs.modal', event => {
-            let button = event.relatedTarget
-            let id = button.getAttribute('data-bs-id')
-            deleteModal.querySelector('.modal-footer #id').value = id
-        })
+        // deleteModal.addEventListener('shown.bs.modal', event => {
+        //     let button = event.relatedTarget
+        //     let id = button.getAttribute('data-bs-id')
+        //     deleteModal.querySelector('.modal-footer #id').value = id
+        // })
         /* listado de datos*/
         getData()
 

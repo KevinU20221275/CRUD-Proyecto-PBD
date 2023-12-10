@@ -37,7 +37,6 @@ if ($num_rows > 0) {
         $html .= '<td width="20%">' . $row['id'] . '</td>';
         $html .= '<td width="60%">' . $row['Nombre'] . '</td>';
         $html .= '<td width="20%"><a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal" data-bs-id="' . $row['id'] . '"><i class="bi bi-pencil-square"></i> Editar</a>
-                    <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="' . $row['id'] . '"><i class="bi-solid bi-trash"></i></i> Eliminar</a>
                   </td>';
         $html .= '</tr>';
     }
