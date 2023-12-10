@@ -143,13 +143,13 @@ if (empty($_SESSION['admin_id'])){
             }).then(response => response.json())
             .then(data => {
                 inputId.value = data.id
-                inputNombre.value = data.nombre
-                inputApellidos.value = data.apellidos
-                inputEmail.value = data.email
-                inputTelefono.value = data.telefono
-                inputDireccion.value = data.direccion
-                inputNombreUsuario.value = data.nombreUsuario
-                inputPassword.value = data.password
+                inputNombre.value = data.Nombre
+                inputApellidos.value = data.Apellidos
+                inputEmail.value = data.Email
+                inputTelefono.value = data.Telefono
+                inputDireccion.value = data.Direccion
+                inputNombreUsuario.value = data.NombreUsuario
+                inputPassword.value = data.Password
             })
         })
 

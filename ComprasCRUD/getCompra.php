@@ -3,7 +3,7 @@
 require '../config/database.php';
 
 $id = $conn->real_escape_string($_POST['id']);
-$query = mysqli_query($conn, "SELECT id,status, email, direccion, total FROM compra WHERE id=$id LIMIT 1");
+$query = mysqli_query($conn, "SELECT id,Status, Email, Direccion, Total FROM vw_compras_CRUD WHERE id=$id LIMIT 1");
 
 if ($query) {
 

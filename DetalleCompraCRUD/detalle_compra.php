@@ -103,8 +103,8 @@ if (empty($_SESSION['admin_id'])){
             }).then(response => response.json())
             .then(data => {
                 inputId.value = data.id
-                inputPrecio.value = data.precio
-                inputCantidad.value = data.cantidad
+                inputPrecio.value = data.Precio
+                inputCantidad.value = data.Cantidad
             })
         })
 

@@ -111,7 +111,7 @@ if (empty($_SESSION['admin_id'])){
             }).then(response => response.json())
             .then(data => {
                 inputId.value = data.id
-                inputNombre.value = data.nombre
+                inputNombre.value = data.Nombre
             })
         })
 
