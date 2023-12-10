@@ -111,7 +111,7 @@ if (empty($_SESSION['admin_id'])){
         updateModal.addEventListener('hide.bs.modal', event => {
             updateModal.querySelector('.modal-body #nombre').value = ""
             updateModal.querySelector('.modal-body #apellidos').value = ""
-            createModal.querySelector('.modal-body #email').value=""
+            updateModal.querySelector('.modal-body #email').value=""
             updateModal.querySelector('.modal-body #telefono').value = ""
             updateModal.querySelector('.modal-body #direccion').value = ""
             updateModal.querySelector('.modal-body #nombreUsuario').value = ""
@@ -186,7 +186,7 @@ if (empty($_SESSION['admin_id'])){
                 }).then(response => response.json())
                 .then(data => {
                     content.innerHTML = data
-                })
+            })
         }
     </script>
 

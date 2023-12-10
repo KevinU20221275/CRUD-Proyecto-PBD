@@ -3,7 +3,7 @@ require 'database.php';
 
 /* Un arreglo de las columnas a mostrar en la tabla */
 $columns = ['id', 'Nombre', 'Apellidos', 'Email','Telefono','Direccion','NombreUsuario', 'Password', 'imagen'];
-
+$columnsBusqueda = ['id', 'Nombre', 'Apellidos', 'Email','Telefono','Direccion','NombreUsuario'];
 /* Nombre de la vista */
 $vista = "vw_administrador_CRUD";
 
@@ -16,9 +16,9 @@ $where = '';
 if ($campo != NULL){
     $where = "WHERE (";
 
-    $cont = count($columns);
+    $cont = count($columnsBusqueda);
     for($i = 0; $i < $cont; $i++){
-        $where .= $columns[$i] . " LIKE '%". $campo . "%' OR ";
+        $where .= $columnsBusqueda[$i] . " LIKE '%". $campo . "%' OR ";
     }
     $where = substr_replace($where, "", -3);
     $where .= ")";
