@@ -57,9 +57,9 @@ if (empty($_SESSION['admin_id'])){
     <main class="container grid">
         <a href="./AdministradorCRUD/administradores.php" class="enlace bg-danger">Administrador</a>
         <a href="./ClientesCRUD/clientes.php" class="enlace bg-success">Clientes</a>
-        <a href="./UsuariosCRUD/usuarios.php" class="enlace bg-danger">Usuarios</a>
+        <a href="./UsuariosCRUD/usuarios.php" class="enlace bg-danger" style="--bs-bg-opacity: .5;">Usuarios</a>
         <a href="./ProductosCRUD/productos.php" class="enlace bg-warning">Productos</a>
-        <a href="./ComentariosProductosCRUD/ComentariosProductos.php" class="enlace bg-secondary">Comentarios Productos</a>
+        <a href="./ComentariosProductosCRUD/ComentariosProductos.php" class="enlace bg-success" style="--bs-bg-opacity: .5;">Comentarios Productos</a>
         <a href="./CategoriasCRUD/categorias.php" class="enlace bg-black">Categorias</a>
         <a href="./ComprasCRUD/compras.php" class="enlace bg-info">Compras</a>
         <a href="./DetalleCompraCRUD/detalle_compra.php" class="enlace bg-secondary">Detalle de Compras</a>

@@ -32,10 +32,9 @@ if (!empty($_POST)){
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <title>Nav</title>
 </head>
-<body class="body d-flex justify-content-center aling-items-center " style="height: 100vh;">
+<body class="body d-flex justify-content-center aling-items-center h-100" style="height: 100vh;">
     
-
-    <main class="form-login">
+    <main class="form-login m-auto mt-5 pt-5">
         <h2>Iniciar sesion</h2>
         <?php mostrarErrores($errors) ?>
         <form action="login.php" class="row g-3" method="post" autocomplete="off">
